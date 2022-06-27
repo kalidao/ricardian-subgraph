@@ -1,0 +1,23 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: RicardianRegistry
+    network: rinkeby
+    source:
+      address: "0xD57e458D9B6B694B010db4EAc2E689bc7137ee44"
+      abi: RicardianRegistry
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - RicardianRegistered
+      abis:
+        - name: RicardianRegistry
+          file: ./abis/RicardianRegistry.json
+      eventHandlers:
+        - event: RicardianRegistered(indexed address,string,string,string,uint256,address)
+          handler: handleRicardianRegistered
+      file: ./src/ricardian-registry.ts
