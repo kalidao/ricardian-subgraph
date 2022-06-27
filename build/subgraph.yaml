@@ -1,6 +1,6 @@
 specVersion: 0.0.4
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: RicardianRegistry
@@ -16,8 +16,8 @@ dataSources:
         - RicardianRegistered
       abis:
         - name: RicardianRegistry
-          file: ./abis/RicardianRegistry.json
+          file: RicardianRegistry/abis/RicardianRegistry.json
       eventHandlers:
         - event: RicardianRegistered(indexed address,string,string,string,uint256,address)
           handler: handleRicardianRegistered
-      file: ./src/ricardian-registry.ts
+      file: RicardianRegistry/RicardianRegistry.wasm
